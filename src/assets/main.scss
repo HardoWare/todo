@@ -1,0 +1,69 @@
+// Abstract
+@use "abstract/colors" as *;
+@use "abstract/variables" as *;
+// Styles
+@use "styles/base" as *;
+@use "styles/nav" as *;
+
+
+
+
+
+
+
+
+
+.new-list {
+  position: absolute;
+  right: 5vw;
+  top: 95vh;
+}
+
+.magnitude-color-1 {
+  background-color: $colorBackgroundNavItem1;
+  transition: 0.5s;
+  &:hover {
+    background-color: $colorBackgroundNavItem1Lighter;
+  }
+}
+.magnitude-color-2 {
+  background-color: $colorBackgroundNavItem2;
+  transition: 0.5s;
+  &:hover {
+    background-color: $colorBackgroundNavItem2Lighter;
+  }
+}
+.magnitude-color-3 {
+  background-color: $colorBackgroundNavItem3;
+  transition: 0.5s;
+  &:hover {
+    background-color: $colorBackgroundNavItem3Lighter;
+  }
+}
+
+
+
+// test
+a {
+  text-decoration: none;
+  color: $colorText;
+  transition: 0.4s;
+
+  &:hover {
+    background-color: $colorPrimaryHover;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+
+
+
+header {
+  border: 1px solid $colorBorder;
+}
+div {
+  //border: 1px solid $colorBorder;
+}

@@ -1,0 +1,29 @@
+@use "../abstract/colors" as *;
+@use "../abstract/variables" as *;
+
+* {
+  font-family: $fontStack;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+body {
+  background-color: $colorBody;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  min-width: 100%;
+  min-height: 100%;
+  transition:
+    color 0.5s,
+    background 0.5s;
+}
+
+#app {
+  max-width: 95vw;
+  max-height: 100%;
+  margin: auto;
+  color: $colorText;
+  background-color: $colorBackground;
+  display: flex;
+}

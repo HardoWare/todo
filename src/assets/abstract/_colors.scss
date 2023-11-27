@@ -1,0 +1,65 @@
+@use "sass:map" as *;
+@use "sass:color" as *;
+
+$theme: (
+    "light": (
+        "background": #f8f8f8,
+        "border": rgba(60, 60, 60, 0.29),
+        "text": #000000,
+    ),
+    "dark": (
+        "background": #282828,
+        "border": rgba(84, 84, 84, 0.65),
+        "text": #ffffff,
+    )
+);
+
+
+$colorBody: #131516; //#181a1b
+$colorPrimary: hsla(160, 100%, 37%, 1);
+$colorPrimaryHover: hsla(160, 50%, 30%, 1);
+
+
+
+//$colorBackgroundLight: #f8f8f8;
+//$colorBorderLight: rgba(60, 60, 60, 0.29);
+//$colorTextLight: #000000;
+
+$colorBackgroundDark: #181a1b; //#282828;
+$colorBorderDark: rgba(84, 84, 84);
+$colorTextDark: #dadada;
+
+//$colorBackground: $colorBackgroundLight;
+//$colorBorder: $colorBorderLight;
+//$colorText: $colorTextLight;
+
+$colorBackground: $colorBackgroundDark;
+$colorBorder: $colorBorderDark;
+$colorText: $colorTextDark;
+
+
+$greenNav: rgba(39, 140, 14, 0.4);
+$yellowNav: rgba(171, 146, 20, 0.4);
+$redNav: rgba(171, 11, 11, 0.4);
+
+$colorBackgroundNavItem1: mix($greenNav, $colorBackground, 40%);
+$colorBackgroundNavItem2: mix($yellowNav, $colorBackground, 40%);
+$colorBackgroundNavItem3: mix($redNav, $colorBackground, 40%);
+
+$colorBackgroundNavItem1Lighter: mix($greenNav, $colorBackground, 70%);
+$colorBackgroundNavItem2Lighter: mix($yellowNav, $colorBackground, 70%);
+$colorBackgroundNavItem3Lighter: mix($redNav, $colorBackground, 70%);
+//@each $keys, $val in $theme {
+//    @each $th, $col in $val {
+//        .color-#{$th}-#{$keys} {
+//
+//        }
+//    }
+//}
+//
+//@mixin theme ($themeName) {
+//    map-get($theme, $themeName) {
+//
+//    }
+//};
+
