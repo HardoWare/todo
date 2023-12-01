@@ -1,9 +1,9 @@
 [
     {
         "id": 1,
-        "isActive": 1,
-        "createdAt": "2000-12-01 12:00",
-        "toDate": "2000-12-04 22:00",
+        "isActive": true,
+        "createdAt": "2000-12-01T12:00:00",
+        "toDate": "2000-12-04T22:00:00",
         "expired": 0,
         "howImportant": 1,
         "title": "title123",
@@ -11,9 +11,9 @@
     },
     {
         "id": 2,
-        "isActive": 1,
-        "createdAt": "2000-12-01 12:00",
-        "toDate": "2000-12-08 22:00",
+        "isActive": false,
+        "createdAt": "2000-12-01T12:00:00",
+        "toDate": "2000-12-08T22:00:00",
         "expired": 0,
         "howImportant": 2,
         "title": "title2",
@@ -21,9 +21,9 @@
     },
     {
         "id": 3,
-        "isActive": 1,
-        "createdAt": "2000-12-05 12:00",
-        "toDate": "2000-12-08 22:00",
+        "isActive": true,
+        "createdAt": "2000-12-05T12:00:00",
+        "toDate": "2000-12-08T22:00:00",
         "expired": 0,
         "howImportant": 3,
         "title": "title3",

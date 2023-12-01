@@ -1,23 +1,15 @@
 // Abstract
 @use "abstract/colors" as *;
 @use "abstract/variables" as *;
+
 // Styles
 @use "styles/base" as *;
 @use "styles/nav" as *;
+@use "view/mainView" as *;
 
-
-
-
-
-
-
-
-
-.new-list {
-  position: absolute;
-  right: 5vw;
-  top: 95vh;
-}
+// Components
+@use "components/anchor" as *;
+@use "components/button" as *;
 
 .magnitude-color-1 {
   background-color: $colorBackgroundNavItem1;
@@ -41,29 +33,3 @@
   }
 }
 
-
-
-// test
-a {
-  text-decoration: none;
-  color: $colorText;
-  transition: 0.4s;
-
-  &:hover {
-    background-color: $colorPrimaryHover;
-  }
-}
-
-ul {
-  list-style: none;
-}
-
-
-
-
-header {
-  border: 1px solid $colorBorder;
-}
-div {
-  //border: 1px solid $colorBorder;
-}

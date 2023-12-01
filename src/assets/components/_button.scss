@@ -1,0 +1,18 @@
+@use "../abstract/colors" as *;
+@use "../abstract/variables" as *;
+
+.btn {
+  border: 0;
+  background-color: transparent;
+  color: $colorText;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.5s;
+  border-radius: calc($borderRadius/3);
+
+}
+
+.btn:hover {
+  background-color: $colorPrimaryHover;
+}

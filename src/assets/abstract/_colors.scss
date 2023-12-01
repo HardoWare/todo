@@ -16,8 +16,9 @@ $theme: (
 
 
 $colorBody: #131516; //#181a1b
+$colorNavbar: rgba(84, 84, 84, 0.2);
 $colorPrimary: hsla(160, 100%, 37%, 1);
-$colorPrimaryHover: hsla(160, 50%, 30%, 1);
+$colorPrimaryHover: hsla(160, 50%, 30%, 0.4);
 
 
 
@@ -26,7 +27,7 @@ $colorPrimaryHover: hsla(160, 50%, 30%, 1);
 //$colorTextLight: #000000;
 
 $colorBackgroundDark: #181a1b; //#282828;
-$colorBorderDark: rgba(84, 84, 84);
+$colorBorderDark: rgba(84, 84, 84, 0.5);
 $colorTextDark: #dadada;
 
 //$colorBackground: $colorBackgroundLight;

@@ -2,72 +2,51 @@
 @use "../abstract/variables" as *;
 
 .header {
-  padding-top: 1rem;
-  height: 100vh;
-  width: max(15vw, 20rem);
+  padding: $headerPadding 0;
+  height: calc(100vh - $headerPadding * 2);
+  width: clamp(2rem, 4vw, 3rem);
+  background-color: $colorNavbar;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   .logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    aspect-ratio: 1;
     width: inherit;
-    height: fit-content;
-    max-height: 6rem;
 
-    .logo-anchor {
-      margin: 0 auto;
-      width: 90%;
-      display: grid;
-      grid-template-columns: 50%;
-      justify-items: stretch;
-
-      .logo-img {
-        aspect-ratio: 1.5;
-        grid-row: 1;
-      }
-      .logo-title {
-        grid-row: 1;
-        font-size: 2rem;
-
-      }
+    .logo-img {
+      width: inherit;
+      height: inherit;
+      object-fit: contain;
     }
   }
   .navbar {
     width: inherit;
+    height: 100%;
     display: flex;
-    flex-flow: column;
+    flex-direction: column;
+    justify-content: center;
 
     .nav-content {
-      width: 100%;
+      width: inherit;
+      display: flex;
+      flex-flow: column;
+      gap: 0.5rem;
 
-      .nav-list {
-        padding: 0;
-
-        .nav-list-item {
-          margin: 0.75rem 1rem;
-          height: 4rem;
-          border: 1px solid $colorBorder;
-          border-radius: $borderRadius;
-
-          .item-content {
-            margin: 0 auto;
-            width: 90%;
-            display: grid;
-            row-gap: 0.5rem;
-
-            .item-date {
-              font-size: 0.75rem;
-              padding: 0.25rem;
-              align-self: center;
-              grid-row: 1;
-            }
-            .item-title {
-              justify-self: center;
-              padding: 0.25rem;
-              grid-row: 2;
-              grid-column-start: 1;
-              grid-column-end: span 2;
-            }
-          }
-        }
-      }
     }
   }
+  .menu {
+    aspect-ratio: 1;
+    width: inherit;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+
 }

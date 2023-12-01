@@ -6,20 +6,28 @@ defineProps({
   },
   anchorHref: {
     type: String,
-    required: true
+    required: false
   },
-  anchorContent: {
+  anchorTitle: {
     type: String,
-    required: true
+    required: false,
+    default: "title"
+  },
+  anchorTarget: {
+    type: String,
+    required: false,
   }
+
 })
 
 </script>
 
 <template>
-<a :class="anchorClass" :href="anchorHref">{{ anchorContent }}</a>
+<a :class="anchorClass" :href="anchorHref" :title="anchorTitle" :target="anchorTarget">
+  <slot />
+</a>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 
 </style>
