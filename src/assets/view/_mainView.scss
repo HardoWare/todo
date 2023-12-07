@@ -3,9 +3,11 @@
 
 
 .filter {
+  position: sticky;
+  top: 0;
   width: 100%;
   height: 3rem;
-  margin: 0 auto;
+  margin: 0.5rem auto;
   background-color: $colorBorder;
   border-radius: $borderRadius;
 
@@ -27,10 +29,21 @@
     .option {
       width: 8rem;
       font-weight: 700;
+      justify-self: center;
     }
+
   }
 }
 
 .container {
+  width: 90%;
+  height: 100vh;
+  margin: 1rem auto;
+}
 
+.list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: stretch;
+  gap: 1rem;
 }

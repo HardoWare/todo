@@ -2,22 +2,24 @@
 defineProps({
   anchorClass: {
     type: String,
-    required: true
+    default: "",
+    required: false
   },
   anchorHref: {
     type: String,
+    default: "",
     required: false
   },
   anchorTitle: {
     type: String,
+    default: "title",
     required: false,
-    default: "title"
   },
   anchorTarget: {
     type: String,
+    default: "",
     required: false,
-  }
-
+  },
 })
 
 </script>

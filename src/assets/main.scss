@@ -10,22 +10,26 @@
 // Components
 @use "components/anchor" as *;
 @use "components/button" as *;
+@use "components/input" as *;
 
-.magnitude-color-1 {
+
+
+
+.importance-1 {
   background-color: $colorBackgroundNavItem1;
   transition: 0.5s;
   &:hover {
     background-color: $colorBackgroundNavItem1Lighter;
   }
 }
-.magnitude-color-2 {
+.importance-2 {
   background-color: $colorBackgroundNavItem2;
   transition: 0.5s;
   &:hover {
     background-color: $colorBackgroundNavItem2Lighter;
   }
 }
-.magnitude-color-3 {
+.importance-3 {
   background-color: $colorBackgroundNavItem3;
   transition: 0.5s;
   &:hover {
