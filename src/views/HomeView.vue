@@ -8,17 +8,25 @@ import BaseCheckbox from "@/components/reusable/BaseCheckbox.vue";
 const list = ref([])
 const sortedList = ref([])
 
-const sortedBy = reactive({
-  date: 'asc'||'desc',
-  importance: 'asc'||'desc',
-  active: true
-})
+const sortedByDate = ref(false)
+const sortedByImportance = ref(false)
+const sortedIsActive = ref(true)
 
 onMounted(async () => {
   const localList = localStorage.getItem('todoList')
   if (localList !== null) {
     list.value = JSON.parse(localList)
-    sortedList.value = list.value
+    const modedItems = list.value.filter(item => item.dateTo < new Date().toJSON().trim().slice(0, 10))
+    modedItems.forEach(item => {
+      item.isActive = false
+    })
+    modedItems.forEach(updated => {
+      const index = list.value.findIndex(item => item.id === updated.id)
+      if(index !== -1) {
+        list.value[index] = updated
+      }
+    })
+    localStorage.setItem('todoList', JSON.stringify(list.value))
     sortedList.value = list.value.filter((item) => item.isActive === true)
   }
   else {
@@ -33,30 +41,39 @@ onMounted(async () => {
   }
 })
 
-watch(sortedBy, (newVal, oldValue) => {
-  console.log(newVal)
-  console.log(oldValue)
+watch(sortedIsActive, (nV, oV) => {
   sortedList.value = [...list.value]
-  if (sortedBy.active === true) {
+  if (nV === true) {
     sortedList.value = list.value.filter((item) => item.isActive === true)
   }
-  if (sortedBy.date) {
-    sortedList.value = sortedList.value.sort((a, b) => {
-      if (newVal.date === 'asc') {
+})
+
+watch(sortedByDate, (nV, oV) => {
+  sortedList.value = sortedList.value.sort((a, b) => {
+      if (nV === true) {
         return new Date(a.dateTo) - new Date(b.dateTo);
       } else {
         return new Date(b.dateTo) - new Date(a.dateTo);
       }
     })
-  }
-  if (sortedBy.importance) {
-    sortedList.value = sortedList.value.sort((a, b) => sortedBy.importance === 'asc' ? a.importance - b.importance : b.importance - a.importance)
-  }
 })
+
+watch(sortedByImportance, (nV, oV) => {
+  sortedList.value = sortedList.value.sort((a, b) => nV === true ? a.importance - b.importance : b.importance - a.importance)
+})
+
+function activeItem(id) {
+  const modedItem = list.value.find((item) => item.id === id)
+  modedItem.isActive = !modedItem.isActive
+  list.value = list.value.filter((item) => item.id !== id)
+  list.value.push(modedItem)
+  sortedList.value = list.value
+  localStorage.setItem('todoList', JSON.stringify(list.value))
+}
 
 function deleteItem(id) {
   list.value = list.value.filter((item) => item.id !== id)
-  sortedList.value = sortedList.value.filter((item) => item.id !== id)
+  sortedList.value = list.value
   localStorage.setItem('todoList', JSON.stringify(list.value))
 }
 
@@ -68,13 +85,13 @@ function deleteItem(id) {
 <!--    <Button btn-class="btn option" >-->
 <!--      Default <font-awesome-icon icon="fa-solid fa-caret-up" size="sm" class="icon"/>-->
 <!--    </Button>-->
-    <Button btn-class="btn option" @click="sortedBy.date = !sortedBy.date">
+    <Button btn-class="btn option" @click="sortedByDate = !sortedByDate">
       Date <font-awesome-icon id="icon-date" icon="fa-solid fa-caret-down" size="sm" class="icon"/>
     </Button>
-    <Button btn-class="btn option" @click="sortedBy.importance = !sortedBy.importance">
+    <Button btn-class="btn option" @click="sortedByImportance = !sortedByImportance">
       Importance <font-awesome-icon id="icon-importance" icon="fa-solid fa-caret-down" size="sm" class="icon"/>
     </Button>
-    <BaseCheckbox @click="sortedBy.active = !sortedBy.active" input-div-class="option div-toggle" input-id="isActive" input-type="toggle" input-name="isActive" label="Active"></BaseCheckbox>
+    <BaseCheckbox @click="sortedIsActive = !sortedIsActive" input-div-class="option div-toggle" input-id="isActive" input-type="toggle" input-name="isActive" label="Active"></BaseCheckbox>
   </div>
 </div>
 
@@ -89,7 +106,8 @@ function deleteItem(id) {
               :item-date-from="item.dateTo"
               :item-content="item.description"
               :item-active="item.isActive"
-              @delete-item.stop.prevent="deleteItem(item.id)"
+              @active-item.once="activeItem(item.id)"
+              @delete-item.once="deleteItem(item.id)"
     />
   </div>
 </div>

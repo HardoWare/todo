@@ -43,10 +43,6 @@ defineProps({
   },
 })
 
-const toList = () => {
-  router.push('/list/'+ itemId)
-}
-
 </script>
 
 <template>
@@ -57,8 +53,8 @@ const toList = () => {
       <div class="item-date">{{ itemDateTo }}</div>
       <div class="item-content">{{ itemContent }}</div>
       <div class="item-active">
-        {{ itemActive === true ? 'active' : 'inactive'  }}
-<!--        <button class="btn btn-item" @click.stop.prevent="$emit('delete-item', itemId)">Delete</button>-->
+        <button class="btn btn-item" @click.prevent="$emit('active-item')">{{ itemActive === true ? 'active' : 'inactive'  }}</button>
+       <button class="btn btn-item" @click.prevent="$emit('delete-item')">Delete</button>
       </div>
     </Anchor>
   </div>

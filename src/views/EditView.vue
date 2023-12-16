@@ -14,8 +14,6 @@ function saveEdit() {
   router.push({path: '/'})
 }
 
-
-
 const formData = ref({
   id: item.id,
   isActive: true,
@@ -53,7 +51,7 @@ const formData = ref({
         <label for="description">Description</label>
         <textarea v-model="formData.description" name="description" id="description" cols="30" rows="10"></textarea>
       </div>
-      <button class="btn btn-form" type="submit">Add new item</button>
+      <button class="btn btn-form" type="submit">Edit this item</button>
     </form>
   </div>
 </template>
