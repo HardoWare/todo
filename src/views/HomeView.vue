@@ -1,6 +1,7 @@
 <script setup>
-import {ref, watch, onMounted, reactive} from "vue"
+import {ref, watch, onMounted, reactive } from "vue"
 // import draggable from "vuedraggable"
+// import fs from "@/server/fileServer.js"
 import Button from "@/components/reusable/Button.vue";
 import ListItem from "@/components/reusable/ListItem.vue";
 import BaseCheckbox from "@/components/reusable/BaseCheckbox.vue";
@@ -12,7 +13,14 @@ const sortedByDate = ref(false)
 const sortedByImportance = ref(false)
 const sortedIsActive = ref(true)
 
+const link = 'http://localhost:3001/todo'
+
 onMounted(async () => {
+
+  const dataaa = await fetch(link)
+
+  console.log('Data:', dataaa)
+
   const localList = localStorage.getItem('todoList')
   if (localList !== null) {
     list.value = JSON.parse(localList)

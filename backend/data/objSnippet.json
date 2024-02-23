@@ -1,0 +1,10 @@
+{
+  "id": 0,
+  "isActive": true,
+  "createdAt": "2000-12-01",
+  "toDate": "2000-12-04",
+  "expired": 0,
+  "importance": 1,
+  "title": "string",
+  "content": "string"
+}
